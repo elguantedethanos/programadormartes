@@ -25,15 +25,20 @@ router.post('/', async (req, res, next) => {
     html: nombre + " " + apellido + " se contactó a través y quiere más información a este correo: " + email + ". <br> Además, hizo el siguiente comentario: " + mensaje + ".<br> Su teléfono es " + telefono
   };
   // Configuración del transporte SMTP
- var transporter = nodemailer.createTransport({
-  host: 'sandbox.smtp.mailtrap.io',
-  port: 2525,
-  secure: true,
+ 
+  var transporter = nodemailer.createTransport({
+  host: process.env.SMTP_HOST,
+  port: process.env.SMTP_PORT,
   auth: {
-    method: 'LOGIN',
-    user: '9b327f72ebfe25',
-    pass: '749d1788293014'
+    user: process.env.SMTP_USER,
+    pass: process.env.SMTP_PASS
   }
 });
+var info = await transporter.sendMail(obj);
+res.render('index', { 
+  message:'Mensaje enviado correctamente',
+});
+
+
 });
 module.exports = router;
