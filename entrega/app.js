@@ -9,10 +9,7 @@ var pool = require('./models/bd');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-var nosotrosRouter = require('./routes/nosotros');//nosotros.js
-var productosRouter = require('./routes/productos');//productos.js
-var galeriaRouter = require('./routes/galeria');//galeria.js
-var loginRouter = require('./routes/admin/login')
+var loginRouter = require('./routes/admin/login');
 
 var app = express();
 
@@ -29,7 +26,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-
+app.use('/admin/login', loginRouter);
 
 pool.query('SELECT * FROM empleados').then(function(resultados){
   //console.log(resultados)
