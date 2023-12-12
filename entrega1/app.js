@@ -1,70 +1,32 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+// Array para almacenar las edades ingresadas
+const edades = [];
 
-require('dotenv').config();
-var session = require('express-session');
+function agregarEdad() {
+  const inputEdad = document.getElementById('edad');
+  const edad = parseInt(inputEdad.value);
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-var loginRouter = require('./routes/admin/login');
-
-var app = express();
-
-// view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'hbs');
-
-app.use(logger('dev'));
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
-
-
-app.use(session({
-  secret:'12w45qelqe4qleq54eq5',
-  resave:false,
-  saveUninitialized: true
-}))
-
-secured = async (req, res, next) => {
-  try {
-    console.log(req.session.id_usuario);
-    if (req.session.id_usuario) {
-      next();
-    } else {
-      res.redirect('/admin/login')
-    }
-  } catch(error) {
-    console.log(error);
+  // Verificar que la entrada sea un número positivo
+  if (!isNaN(edad) && edad > 0) {
+    edades.push(edad);
+    actualizarEdades();
+    inputEdad.value = ''; // Limpiar el campo de entrada
+    calcularPromedio();
+  } else {
+    alert('Por favor, ingresa una edad válida.');
   }
 }
 
+function actualizarEdades() {
+  const edadesIngresadas = document.getElementById('edadesIngresadas');
+  edadesIngresadas.innerHTML = '<strong>Edades Ingresadas:</strong> ' + edades.join(', ');
+}
 
-
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
-app.use('/admin/login', loginRouter);
-//app.use('/admin/novedades', secured, adminNovedadesRouter);
-
-
-// catch 404 and forward to error handler
-app.use(function(req, res, next) {
-  next(createError(404));
-});
-
-// error handler
-app.use(function(err, req, res, next) {
-  // set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
-
-  // render the error page
-  res.status(err.status || 500);
-  res.render('error');
-});
-
-module.exports = app;
+function calcularPromedio() {
+  const resultado = document.getElementById('resultado');
+  if (edades.length > 0) {
+    const promedio = edades.reduce((a, b) => a + b) / edades.length;
+    resultado.textContent = promedio.toFixed(2); // Mostrar el promedio con dos decimales
+  } else {
+    resultado.textContent = 'N/A'; // Si no hay edades ingresadas, mostrar "N/A"
+  }
+}
