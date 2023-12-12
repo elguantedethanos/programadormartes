@@ -1,66 +1,32 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+// Array para almacenar las edades ingresadas
+const edades = [];
 
-require('dotenv').config();
-var pool = require('./models/bd');
+function agregarEdad() {
+  const inputEdad = document.getElementById('edad');
+  const edad = parseInt(inputEdad.value);
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-var nosotrosRouter = require('./routes/nosotros');//nosotros.js
-var productosRouter = require('./routes/productos');//productos.js
-var galeriaRouter = require('./routes/galeria');//galeria.js
-var loginRouter = require('./routes/admin/login')
+  // Verificar que la entrada sea un número positivo
+  if (!isNaN(edad) && edad > 0) {
+    edades.push(edad);
+    actualizarEdades();
+    inputEdad.value = ''; // Limpiar el campo de entrada
+    calcularPromedio();
+  } else {
+    alert('Por favor, ingresa una edad válida.');
+  }
+}
 
-var app = express();
+function actualizarEdades() {
+  const edadesIngresadas = document.getElementById('edadesIngresadas');
+  edadesIngresadas.innerHTML = '<strong>Edades Ingresadas:</strong> ' + edades.join(', ');
+}
 
-// view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'hbs');
-
-app.use(logger('dev'));
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
-
-
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
-
-
-pool.query('SELECT * FROM empleados').then(function(resultados){
-  //console.log(resultados)
-});
-
-var obj = {
-nombre: 'Juan',
-apellido: 'Lopez',
-trabajo: 'docente',
-edad: 38,
-salario:150000,
-mail: 'juanlopez@gmail.com'};
-
-
-pool.query('insert into empleados set ?', [obj]).then (function (resultados) {
-  console.log(resultados)
-});
-// catch 404 and forward to error handler
-app.use(function(req, res, next) {
-  next(createError(404));
-});
-
-// error handler
-app.use(function(err, req, res, next) {
-  // set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
-
-  // render the error page
-  res.status(err.status || 500);
-  res.render('error');
-});
-
-module.exports = app;
+function calcularPromedio() {
+  const resultado = document.getElementById('resultado');
+  if (edades.length > 0) {
+    const promedio = edades.reduce((a, b) => a + b) / edades.length;
+    resultado.textContent = promedio.toFixed(2); // Mostrar el promedio con dos decimales
+  } else {
+    resultado.textContent = 'N/A'; // Si no hay edades ingresadas, mostrar "N/A"
+  }
+}
