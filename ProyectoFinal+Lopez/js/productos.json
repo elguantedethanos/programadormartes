@@ -1,0 +1,182 @@
+[
+    {
+        "id": "iphone11-01",
+        "titulo": "iphone11 black",
+        "imagen": "./img/iphone11/01.jpg",
+        "categoria": {
+            "nombre": "iphone11",
+            "id": "iphone11"
+        },
+        "precio": 1000
+    },
+    {
+        "id": "iphone11-02",
+        "titulo": "iphone11 red",
+        "imagen": "./img/iphone11/02.jpg",
+        "categoria": {
+            "nombre": "iphone11",
+            "id": "iphone11"
+        },
+        "precio": 1000
+    },
+    {
+        "id": "iphone11-03",
+        "titulo": "iphone11 white",
+        "imagen": "./img/iphone11/03.jpg",
+        "categoria": {
+            "nombre": "iphone11",
+            "id": "iphone11"
+        },
+        "precio": 1000
+    },
+    {
+        "id": "iphone11-04",
+        "titulo": "iphone11 green",
+        "imagen": "./img/iphone11/04.jpg",
+        "categoria": {
+            "nombre": "iphone11",
+            "id": "iphone11"
+        },
+        "precio": 1000
+    },
+    {
+        "id": "iphone11-05",
+        "titulo": "iphone11 purple",
+        "imagen": "./img/iphone11/05.jpg",
+        "categoria": {
+            "nombre": "iphone11",
+            "id": "iphone11"
+        },
+        "precio": 1000
+    },
+    {
+        "id": "iphone12",
+        "titulo": "iphone12",
+        "imagen": "./img/iphone12/01.jpg",
+        "categoria": {
+            "nombre": "iphone12",
+            "id": "iphone12"
+        },
+        "precio": 1000
+    },
+    {
+        "id": "iphone12",
+        "titulo": "iphone12",
+        "imagen": "./img/iphone12/02.jpg",
+        "categoria": {
+            "nombre": "iphone12",
+            "id": "iphone12"
+        },
+        "precio": 1000
+    },
+    {
+        "id": "iphone12",
+        "titulo": "iphone12",
+        "imagen": "./img/iphone12/03.jpg",
+        "categoria": {
+            "nombre": "iphone12",
+            "id": "iphone12"
+        },
+        "precio": 1000
+    },
+    {
+        "id": "iphone12",
+        "titulo": "iphone12",
+        "imagen": "./img/iphone12/04.jpg",
+        "categoria": {
+            "nombre": "iphone12",
+            "id": "iphone12"
+        },
+        "precio": 1000
+    },
+    {
+        "id": "iphone12",
+        "titulo": "iphone12",
+        "imagen": "./img/iphone12/05.jpg",
+        "categoria": {
+            "nombre": "iphone12",
+            "id": "iphone12"
+        },
+        "precio": 1000
+    },
+    {
+        "id": "iphone12",
+        "titulo": "iphone12",
+        "imagen": "./img/iphone12/06.jpg",
+        "categoria": {
+            "nombre": "iphone12",
+            "id": "iphone12"
+        },
+        "precio": 1000
+    },
+    {
+        "id": "iphone12",
+        "titulo": "iphone12",
+        "imagen": "./img/iphone12/07.jpg",
+        "categoria": {
+            "nombre": "iphone12",
+            "id": "iphone12"
+        },
+        "precio": 1000
+    },
+    {
+        "id": "iphone12",
+        "titulo": "iphone12",
+        "imagen": "./img/iphone12/08.jpg",
+        "categoria": {
+            "nombre": "iphone12",
+            "id": "iphone12"
+        },
+        "precio": 1000
+    },
+    {
+        "id": "iphone13",
+        "titulo": "iphone13",
+        "imagen": "./img/iphone13/01.jpg",
+        "categoria": {
+            "nombre": "iphone13",
+            "id": "iphone13"
+        },
+        "precio": 1000
+    },
+    {
+        "id": "iphone13",
+        "titulo": "iphone13",
+        "imagen": "./img/iphone13/02.jpg",
+        "categoria": {
+            "nombre": "iphone13",
+            "id": "iphone13"
+        },
+        "precio": 1000
+    },
+    {
+        "id": "iphone13",
+        "titulo": "iphone13",
+        "imagen": "./img/iphone13/03.jpg",
+        "categoria": {
+            "nombre": "iphone13",
+            "id": "iphone13"
+        },
+        "precio": 1000
+    },
+    {
+        "id": "iphone13",
+        "titulo": "iphone13",
+        "imagen": "./img/iphone13/04.jpg",
+        "categoria": {
+            "nombre": "iphone13",
+            "id": "iphone13"
+        },
+        "precio": 1000
+    },
+    {
+        "id": "iphone13",
+        "titulo": "iphone13",
+        "imagen": "./img/iphone13/05.jpg",
+        "categoria": {
+            "nombre": "iphone13",
+            "id": "iphone13"
+        },
+        "precio": 1000
+    }
+]
